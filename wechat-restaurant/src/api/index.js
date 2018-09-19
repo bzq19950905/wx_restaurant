@@ -1,6 +1,6 @@
 import http from '@/utils/http/index.js'
 
-async function apiShop (url, page) {
+async function apiGet (url, page) {
   return http.get(url, page).then(res => {
     return res
   }).catch(err => {
@@ -8,5 +8,5 @@ async function apiShop (url, page) {
   })
 }
 export {
-  apiShop
+  apiGet
 }
