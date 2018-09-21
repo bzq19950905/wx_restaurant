@@ -7,10 +7,14 @@ import 'vue-ydui/dist/ydui.rem.css'
 import router from './router'
 import ToThis from '@/utils/defineProperty.js'
 import store from '@/store/index.js'
+import Icon from 'vue-awesome/components/Icon'
+import 'vue-awesome/icons/flag'
+import 'vue-awesome/icons'
 import '@/assets/rem.js'
 Vue.config.productionTip = false
 Vue.use(ToThis)
 Vue.use(YDUI)
+Vue.component('v-icon', Icon)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

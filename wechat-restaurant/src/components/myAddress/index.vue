@@ -1,13 +1,13 @@
 <template>
-  <div class="div">
-    hello world
+  <div class="wrap">
+    112233
   </div>
 </template>
 <script>
 export default {
-  name: 'hello'
+  name: 'MyAddress'
 }
 </script>
-<style>
+<style scoped>
 
 </style>
