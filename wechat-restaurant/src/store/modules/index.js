@@ -1,4 +1,6 @@
-import myorder from './myorder'
+import myOrder from './myOrder'
+import myAddress from './myAddress'
 export {
-  myorder
+  myOrder,
+  myAddress
 }

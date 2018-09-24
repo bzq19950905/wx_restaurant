@@ -15,24 +15,23 @@
 </template>
 <script>
 import {mapActions, mapState} from 'vuex'
-import Header from './header.vue' // 头部
-import AddressA from './address.vue' // 付款栏
-import Distribution from './distribution.vue' // 选择收货地址
-import OrderList from './orderList.vue' // 订单列表
+import Header from './component/header.vue' // 头部
+import AddressA from './component/address.vue' // 付款栏
+import Distribution from './component/distribution.vue' // 选择收货地址
+import OrderList from './component/orderList.vue' // 订单列表
 export default {
   name: 'myorder',
   mounted () {
-    console.log(this)
     this.initData()
   },
   computed: {
     ...mapState({
-      mo_orderLissData: (state) => state.myorder.myorderData
+      mo_orderLissData: (state) => state.myOrder.myorderData
     })
   },
   methods: {
     ...mapActions({
-      initData: 'myorder/myData'
+      initData: 'myOrder/myData'
     })
   },
   components: {
