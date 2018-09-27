@@ -1,5 +1,5 @@
 <template>
-  <div class="child">
+  <div class="child" @click="SelectAddress">
     <div class="child_name">
       <b>{{ChildDataV.name}}</b>
       <span>{{ChildDataV.sex}} {{ChildDataV.phone}}</span>
@@ -15,17 +15,27 @@
   </div>
 </template>
 <script>
+import {mapActions} from 'vuex'
 export default {
   name: 'handle',
   props: {
-   ChildDataV: {
-    type: Object,
-    default: {}
+    ChildDataV: {
+      type: Object,
+      default: null
     },
-  ChildDataK: {
-    type: String,
-    default: ''
-  }
+    ChildDataK: {
+      type: String,
+      default: ''
+    }
+  },
+  methods: {
+    ...mapActions({
+      spread: 'myOrder/mySpread'
+    }),
+    SelectAddress () {
+      this.spread(this.$props.ChildDataV)
+      this.$router.replace('/myorder')
+    }
   }
 }
 </script>
@@ -39,13 +49,13 @@ export default {
   b{
     font-weight: 800;
     color:#2B2D2C;
-    font-size: .34rem; 
+    font-size: .34rem;
   }
   span{
     margin-left: .2rem;
     font-weight: 600;
     color:#2B2D2C;
-    font-size: .26rem; 
+    font-size: .26rem;
   }
 }
 .child_personality,.child_address{
@@ -65,4 +75,3 @@ export default {
   }
 }
 </style>
-

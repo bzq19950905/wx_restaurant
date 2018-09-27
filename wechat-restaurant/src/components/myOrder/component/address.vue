@@ -13,9 +13,12 @@
       <aside>
           <h1>支付方式</h1>
       </aside>
-      <b>
-        在线支付
-      </b>
+      <select slot="right" class="method">
+        <option value="">支付方式</option>
+        <option value="1">支付宝</option>
+        <option value="2">微信</option>
+        <option value="3">财付通</option>
+      </select>
     </div>
   </div>
 </template>
@@ -52,11 +55,12 @@ export default {
             padding: 0 .1rem;
         }
     }
-    b{
+    .method,b{
         font-size: .3rem;
         color: #3986B4;
         display: flex;
         align-items: center;
+        border: 0;
         .fa-icon{
             margin-left: .1rem;
         }

@@ -6,18 +6,18 @@
 </template>
 <script>
 export default {
-  name:'Header',
+  name: 'Header',
   data () {
     return {
     }
   },
   created () {
-    this.title = this.$props.title 
+    this.title = this.$props.title
   },
   props: {
-    title:{
-      type:String,
-      default:'头部标签'
+    title: {
+      type: String,
+      default: '头部标签'
     }
   }
 }
@@ -44,4 +44,3 @@ export default {
     }
 }
 </style>
-

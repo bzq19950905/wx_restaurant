@@ -3,7 +3,12 @@ import Router from 'vue-router'
 import Hello from '@/components/hello.vue'
 // 订单页
 import Myorder from '@/components/myOrder'
+// 地址
 import MyAddress from '@/components/MyAddress'
+import SelectAddress from '@/components/MyAddress/component/selectAddress'// 选择地址
+import AddAddress from '@/components/MyAddress/component/addaddress'// 添加地址
+// 题图
+import NearbyMap from '@/components/nearbyMap'
 Vue.use(Router)
 
 export default new Router({
@@ -22,7 +27,21 @@ export default new Router({
     {
       path: '/myaddress',
       name: 'MyAddress',
-      component: MyAddress
+      component: MyAddress,
+      redirect: '/myaddress/selectaddress',
+      children: [{
+        path: 'selectaddress',
+        name: 'SelectAddress',
+        component: SelectAddress
+      }, {
+        path: 'addaddress',
+        name: 'AddAddress',
+        component: AddAddress
+      }]
+    }, {
+      path: '/nearbymap',
+      name: 'NearbyMap',
+      component: NearbyMap
     }
   ]
 })

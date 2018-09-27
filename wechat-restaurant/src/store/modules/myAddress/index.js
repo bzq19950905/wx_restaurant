@@ -15,7 +15,6 @@ export default {
   },
   mutations: {
     MY_DATA (state, payload) {
-      console.log(payload)
       state.Data = payload
     }
   }

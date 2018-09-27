@@ -1,15 +1,21 @@
 <template>
   <div class="mo_distribution">
     <p>
-      订单配送至 <b></b>
+      订单配送至
     </p>
-    <router-link to="/myaddress" tag='b'>选择收货地址 <v-icon name="angle-right" scale="1" /> </router-link>
+    <router-link to="/myaddress" tag='b'>选择收货地址 <v-icon name="angle-right" scale="1" /> <b>{{mo_address}}</b></router-link>
     <!-- <b>选择收货地址 <v-icon name="angle-right" scale="1" /></b> -->
   </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
-  name: 'distribution'
+  name: 'distribution',
+  computed: {
+    ...mapState({
+      mo_address: (state) => state.myOrder.myAddress
+    })
+  }
 }
 </script>
 <style lang="scss" scoped>

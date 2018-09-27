@@ -9,8 +9,8 @@
 import Child from './mABoxChild.vue'
 export default {
   name: 'myBox',
-  props:{
-   Data:{
+  props: {
+    Data: {
       default: []
     }
   },
@@ -27,5 +27,3 @@ export default {
   padding: .2rem .4rem;
 }
 </style>
-
-
