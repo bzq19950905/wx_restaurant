@@ -1,7 +1,6 @@
 <template>
   <div class="loading">
     <aside class="loading_img">
-
     </aside>
   </div>
 </template>
@@ -18,7 +17,7 @@ export default {
     left: 0;
     top: 0;
     z-index: 99;
-    background: #FFF;
+    background: url('../../assets/back_bg.svg') no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;

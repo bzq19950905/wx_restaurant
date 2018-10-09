@@ -3,7 +3,8 @@ export default {
   namespaced: true,
   state: {
     title: '模拟数据',
-    Data: []
+    Data: [],
+    CoordinateText: sessionStorage.getItem('addaddressObj') ? JSON.parse(sessionStorage.getItem('addaddressObj')).address : ''
   },
   actions: {
     async myData ({commit}, payload) {
@@ -11,11 +12,17 @@ export default {
       if (Number(MyData.code) === 1) {
         commit('MY_DATA', MyData.data.getAddress)
       }
+    },
+    Coordinate ({commit}, payload) {
+      commit('MY_CDTEXT', payload)
     }
   },
   mutations: {
     MY_DATA (state, payload) {
       state.Data = payload
+    },
+    MY_CDTEXT (state, payload) {
+      state.CoordinateText = payload.poiaddress + payload.poiname
     }
   }
 }

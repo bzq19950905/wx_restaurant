@@ -6,7 +6,7 @@
         <p>蜂鸟专送</p>
       </aside>
       <b>
-        尽快送达(15:20送达)<v-icon name="angle-right" scale="1" />
+        尽快送达({{mo_new_data}}送达)<v-icon name="angle-right" scale="1" />
       </b>
     </div>
     <div class="mo_address_choice mo_address_time">
@@ -14,7 +14,7 @@
           <h1>支付方式</h1>
       </aside>
       <select slot="right" class="method">
-        <option value="">支付方式</option>
+        <option value="">在线支付</option>
         <option value="1">支付宝</option>
         <option value="2">微信</option>
         <option value="3">财付通</option>
@@ -23,8 +23,22 @@
   </div>
 </template>
 <script>
+import {mapState, mapActions} from 'vuex'
 export default {
-  name: 'addressA'
+  name: 'addressA',
+  computed: {
+    ...mapState({
+      mo_new_data: (state) => state.myOrder.new_Data
+    })
+  },
+  mounted () {
+    this.new_Data()
+  },
+  methods: {
+    ...mapActions({
+      new_Data: 'myOrder/newData'
+    })
+  }
 }
 </script>
 <style lang="scss" scoped>

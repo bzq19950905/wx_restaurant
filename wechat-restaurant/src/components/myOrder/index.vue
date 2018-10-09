@@ -4,12 +4,19 @@
     <Distribution />
     <AddressA />
   <section class="section">
-    <div class="mo_orderBox" v-for="(item,index) in mo_orderLissData " :key="index">
+    <!-- v-for="(item,val,index) in mo_orderLissData " :key="index" -->
+    <div class="mo_orderBox" v-if="Object.keys(mo_orderLissData).length > 0">
       <!-- 渲染 -->
-    <OrderList :listData = {item} />
+      <OrderList :Data="mo_orderLissData"/>
+    </div>
+    <div class="mo_text" v-else>
+      <p>
+        空空的去买点吧~~
+      </p>
     </div>
   </section>
   <footer class="footer">
+     <Shop link='/myorder'/>
   </footer>
   </div>
 </template>
@@ -19,6 +26,7 @@ import Header from './component/header.vue' // 头部
 import AddressA from './component/address.vue' // 付款栏
 import Distribution from './component/distribution.vue' // 选择收货地址
 import OrderList from './component/orderList.vue' // 订单列表
+import Shop from '@/common/FooterShop' // 底部购物车
 export default {
   name: 'myorder',
   mounted () {
@@ -26,7 +34,7 @@ export default {
   },
   computed: {
     ...mapState({
-      mo_orderLissData: (state) => state.myOrder.myorderData
+      mo_orderLissData: (state) => state.menu.storageList
     })
   },
   methods: {
@@ -38,7 +46,8 @@ export default {
     Header,
     AddressA,
     Distribution,
-    OrderList
+    OrderList,
+    Shop
   }
 }
 </script>

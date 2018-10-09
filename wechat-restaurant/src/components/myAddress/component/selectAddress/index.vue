@@ -27,6 +27,7 @@ export default {
   mounted () {
     this.initData()
     this.init()
+    this.Sclear()
   },
   methods: {
     ...mapActions({
@@ -35,6 +36,9 @@ export default {
     init () {
       let local = window.sessionStorage
       local.clear('addaddressObj')
+    },
+    Sclear () {
+      sessionStorage.clear('addaddressObj')
     }
   }
 }

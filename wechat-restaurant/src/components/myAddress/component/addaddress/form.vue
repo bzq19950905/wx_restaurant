@@ -17,14 +17,14 @@
         <option value="2">女</option>
       </select>
     </yd-cell-item>
-    <!-- <div @click="storAge" class="map">
+    <div @click="storAge" class="map">
       <b>送餐地址</b>
-      <input type="text" placeholder="请选择送餐地址" v-model="form.address">
-    </div> -->
-     <yd-cell-item>
+      <input type="text" disabled placeholder="请选择送餐地址" v-model="form.address" @change="Input">
+    </div>
+     <!-- <yd-cell-item>
       <span slot="left" class="title">送餐地址</span>
       <input slot="right" type="text" placeholder="请填写详细送餐地址" v-model="form.address" @input="Input">
-    </yd-cell-item>
+    </yd-cell-item> -->
      <yd-cell-item>
       <span slot="left" class="title">详细送餐地址</span>
       <input slot="right" type="text" placeholder="详细送餐地址(如门牌号等)" v-model="form.detailedAddress" @input="Input">
@@ -46,11 +46,15 @@ export default {
         sex: '',
         address: '',
         detailedAddress: ''
-      }
+      },
+      // eslint-disable-next-line
+      geolocation : new qq.maps.Geolocation("PLABZ-34WWI-TRYGM-5TDEM-YOOKH-JJBAH", "myapp")
     }
   },
   mounted () {
     this.init()
+    this.Coordinate()
+    this.Input()
   },
   methods: {
     init () {
@@ -85,13 +89,18 @@ export default {
       }
     },
     storAge () {
-      this.Input()
-      this.$router.replace('/nearbymap')
+      this.geolocation.getLocation(pos => {
+        console.log(pos.lat, pos.lng)
+        this.$router.replace('/nearbymap')
+      })
     },
     Input () {
       let obj = this.form
       let local = window.sessionStorage
       local.setItem('addaddressObj', JSON.stringify(obj))
+    },
+    Coordinate () {
+      this.form.address = this.$store.state.myAddress.CoordinateText
     }
   }
 }

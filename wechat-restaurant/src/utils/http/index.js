@@ -10,18 +10,18 @@ const json2url = (params) => {
 }
 const statusCode = (code) => {
   switch (code + '') {
-    case '404':
-      return {
-        errCode: '0',
-        errMsg: '数据跑丢了'
-      }
-    case '500':
-      return {
-        errCode: '2',
-        errMsg: '后台跑丢了'
-      }
-    default:
-      return 11
+  case '404':
+    return {
+      errCode: '0',
+      errMsg: '数据跑丢了'
+    }
+  case '500':
+    return {
+      errCode: '2',
+      errMsg: '后台跑丢了'
+    }
+  default:
+    return 11
   }
 }
 const request = async (url, opts) => new Promise((resolve, reject) => {
