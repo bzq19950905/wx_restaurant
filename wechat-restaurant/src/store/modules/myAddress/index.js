@@ -22,7 +22,7 @@ export default {
       state.Data = payload
     },
     MY_CDTEXT (state, payload) {
-      state.CoordinateText = payload.poiaddress + payload.poiname
+      state.CoordinateText = payload.poiname
     }
   }
 }

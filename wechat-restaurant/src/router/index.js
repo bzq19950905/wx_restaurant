@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/hello.vue'
+// 选择店铺
+import SelectShop from '@/components/selectShop'
 // 商家列表页
 import Menu from '@/components/menu'
 // 订单页
@@ -21,7 +23,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'hello', // 假定首页
+      name: 'hello', // 首页
       component: Hello
     },
     {
@@ -62,6 +64,10 @@ export default new Router({
       path: '/nearbymap',
       name: 'NearbyMap', // 腾讯地图调用
       component: NearbyMap
+    }, {
+      path: '/selectshop',
+      name: 'SelectShop', // 选择店面
+      component: SelectShop
     }
   ]
 })

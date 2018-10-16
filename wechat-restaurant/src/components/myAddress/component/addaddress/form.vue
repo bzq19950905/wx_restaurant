@@ -91,7 +91,7 @@ export default {
     storAge () {
       this.geolocation.getLocation(pos => {
         console.log(pos.lat, pos.lng)
-        this.$router.replace('/nearbymap')
+        this.$router.push({name: 'NearbyMap', params: {lat: pos.lat, lng: pos.lng}})
       })
     },
     Input () {

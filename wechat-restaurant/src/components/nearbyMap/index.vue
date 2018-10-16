@@ -1,23 +1,25 @@
 <template>
- <iframe id="mapPage" width="100%" height="100%" frameborder=0
-    src="https://apis.map.qq.com/tools/poimarker?
-    type=0&marker=coord:39.96554,、
-    116.26719;title:成都;
-    addr:北京市海淀区复兴路32号院|coord:39.87803,116.19025;
-    title:成都园;addr:北京市丰台区射击场路15号北京园博园|coord:39.88129,116.27062;
-    title:老成都;
-    addr:北京市丰台区岳各庄梅市口路西府景园六号楼底商|coord:39.9982,116.19015;
-    title:北京园博园成都园;
-    addr:北京市丰台区园博园内&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp">
-</iframe>
+   <iframe id="markPage" width="100%" height="100%" frameborder=0
+   :src="Src">
+   </iframe>
 </template>
 <script>
 
 import { mapActions } from 'vuex'
 export default {
   name: 'Nearby',
+  data () {
+    return {
+      loc: null,
+      Src: ''
+    }
+  },
   mounted () {
     this.init()
+    let lat = this.$route.params.lat
+    let lng = this.$route.params.lng
+    this.Src = `https://apis.map.qq.com/tools/locpicker?search=1&type=1&coord=${lat},${lng}&key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp`
+    console.log(lat, lng)
   },
   methods: {
     ...mapActions({
